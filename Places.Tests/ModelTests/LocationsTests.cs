@@ -19,7 +19,7 @@ namespace Places.TestTools
     public void GetDescription_RetrievesDescription_String()
     {
       string description = "this is a test description";
-      Location newLocation = new Location("good fail");
+      Location newLocation = new Location(description);
       string result = newLocation.Description;
       Assert.AreEqual(description, result);
     }

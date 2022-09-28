@@ -14,5 +14,14 @@ namespace Places.TestTools
       Location newLocation = new Location("France");
       Assert.AreEqual(typeof(Location), newLocation.GetType());
     }
+
+    [TestMethod]
+    public void GetDescription_RetrievesDescription_String()
+    {
+      string description = "this is a test description";
+      Location newLocation = new Location("good fail");
+      string result = newLocation.Description;
+      Assert.AreEqual(description, result);
+    }
   }
 }

@@ -6,8 +6,13 @@ using System;
 namespace Places.TestTools
 {
   [TestClass]
-  public class LocationsTests
+  public class LocationsTests : IDisposable
   {
+    public void Dispose()
+    {
+      Location.ClearAll();
+    }
+
     [TestMethod]
     public void LocationConstructor_CreatesAClass_Location()
     {
@@ -35,7 +40,7 @@ namespace Places.TestTools
       //Act
       string updatedDescription = "an updated description";
       newLocation.Description = updatedDescription;
-      string result = "good fail";//newLocation.Description;
+      string result = newLocation.Description;
 
       //Assert
       Assert.AreEqual(updatedDescription, result);
@@ -49,7 +54,7 @@ namespace Places.TestTools
 
       // Act
       List<Location> result = Location.GetAll();
-      Location newLocation = new Location("so that the newList list isn't empty and good fails");
+      
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
@@ -67,7 +72,7 @@ namespace Places.TestTools
 
       //Act
       List<Location> result = Location.GetAll();
-      Location newLocation3 = new Location("3rd thing so we have a good fail");
+      
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
